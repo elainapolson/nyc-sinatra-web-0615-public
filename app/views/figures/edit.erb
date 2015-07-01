@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Figure</title>
+</head>
+<body>
+  <h1>Edit Figures</h1>
+  <form action='/figures/<%=@figure.id%>' method='POST'>
+  <input type="hidden" name="_method" value="patch">
+  <label>Name</label>    
+  <input type="text" name="figures[name]" value="<%=@figure.name%>">
+  <label>Title</label>    
+  <input type="text" name="figures[add_titles_by_name]" value="<%=@figure.titles.collect{|title|title.name}.join(", ")%>">
+
+  <input type="submit" value="submit">
+
+  </form>
+
+
+</body>
+</html>

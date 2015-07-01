@@ -10,7 +10,12 @@ describe LandmarksController do
   end
 
   it "allows you to create a new landmark" do
-    pending "write your own spec!"
+    visit 'landmarks/new'
+    fill_in('landmarks[name]', :with=> 'Flatiron Bldg')
+    click_button('submit')
+    expect(current_path).to eq '/landmarks'
+    expect(page).to have_content "Flatiron Bldg"
+
   end
 
   it "allows you to list all landmarks" do
@@ -25,6 +30,10 @@ describe LandmarksController do
   end
 
   it "allows you to edit a single landmark" do
-    pending "write your own spec!"
+    @landmark = Landmark.first.id
+    visit "/landmarks/#{@landmark}/edit"
+    fill_in("landmarks[name]", :with=> "NewName")
+    click_button('submit')
+    expect(page).to have_content "NewName"
   end
 end

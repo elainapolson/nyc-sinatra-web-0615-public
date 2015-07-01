@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landmarks</title>
+</head>
+<body>
+  <h1>Landmarks</h1>
+  <table>
+  <tr>
+    <th>NAME</th>
+  </tr>
+    <%@landmarks.each do |landmark|%>
+      <tr>
+        <td><%= landmark.name %></td>
+
+        <td><form action="/landmarks/<%=landmark.id%>">
+        </br>
+        <input type="submit" value="Show"></form></td>
+        <% end %>
+      </tr>
+  </table>
+
+  </br>
+  </br>
+
+  <form action="/landmarks/new">
+    <input type="submit" value="New"></form>
+</body>
+</html>

@@ -1,10 +1,30 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Year Completed</th>
-  </tr>
-  <tr>
-    <td><%= @landmark.name %></td>
-    <td><%= @landmark.year_completed %></td>
-  </tr>
-<table>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landmark Details</title>
+</head>
+<body>
+    <h1>Landmark Details</h1>
+    <table>
+    <tr>
+      <th>Name</th>
+      <th>Year Completed</th>
+      <th>Figure</th> 
+    </tr>
+    <tr>
+      <td><%= @landmark.name %></td>
+      <td><%= @landmark.year_completed %></td>
+      <td><%= @landmark.figure.name %></td>
+      <td><form action="/landmarks/<%=@landmark.id%>/edit">
+      <input type="submit" value="Edit"></td>
+      <td><form action="/landmarks/<%=@landmark.id%>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Destroy">
+      </form>
+      </td>
+    </tr>
+  <table>
+</body>
+</html>
+
+

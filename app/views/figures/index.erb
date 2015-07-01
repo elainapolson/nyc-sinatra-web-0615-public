@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Figures</title>
+</head>
+<body>
+  <h1>Figures</h1>
+  <table>
+  <tr>
+    <th>NAME</th>
+  </tr>
+    <%@figures.each do |figure|%>
+      <tr>
+        <td><%= figure.name %></td>
+
+        <td><form action="/figures/<%=figure.id%>">
+        </br>
+        <input type="submit" value="Show"></form></td>
+        <% end %>
+      </tr>
+  </table>
+
+  <form action="/figures/new">
+    <input type ="submit" value="New"></form>
+</body>
+</html>

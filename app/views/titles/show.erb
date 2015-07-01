@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Title Details</title>
+</head>
+<body>
+    <h1>Title Details</h1>
+    <table>
+    <tr>
+      <th>Name</th>
+      <th>Figures</th>
+    </tr>
+    </tr>
+    <tr>
+    <% if @title.name? %>
+      <td><%= @title.name.capitalize %></td>
+
+      <% @title.figures.each do |figure| %>
+      <td><%= figure.name.capitalize %></td>
+      <% end %>
+
+    <% end %>
+      <td><form action="/titles/<%=@title.id%>/edit">
+        <input type="submit" value="Edit"></form></td>
+      <td><form action="/titles/<%=@title.id%>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Destroy">
+      </form>
+      </td>
+    </tr>
+  <table>
+</body>
+</html>
+
+
