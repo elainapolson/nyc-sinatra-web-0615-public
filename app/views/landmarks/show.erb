@@ -14,9 +14,11 @@
     <tr>
       <td><%= @landmark.name %></td>
       <td><%= @landmark.year_completed %></td>
+      <% if @landmark.figure %>
       <td><%= @landmark.figure.name %></td>
+      <% end %>
       <td><form action="/landmarks/<%=@landmark.id%>/edit">
-      <input type="submit" value="Edit"></td>
+      <input type="submit" value="Edit"></td></form>
       <td><form action="/landmarks/<%=@landmark.id%>" method="POST">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Destroy">

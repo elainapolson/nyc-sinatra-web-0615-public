@@ -14,10 +14,11 @@
 
     <% if @figure.name %>
       <td><%= @figure.name.capitalize %></td>
-
-      <% @figure.titles.each do |title| %>
-      <td><%= title.name.capitalize %></td>
-      <% end %>
+        <% if @figure.titles %>
+          <% @figure.titles.each do |title| %>
+            <td><%= title.name.capitalize %></td>
+          <% end %>
+        <% end %>
     <% end %>
 
       <td><form action="/figures/<%=@figure.id%>/edit">

@@ -19,14 +19,14 @@ describe LandmarksController do
   end
 
   it "allows you to list all landmarks" do
-    get '/landmarks'
-    expect(last_response.status).to eq(200)
+    visit '/landmarks'
+    expect(page).to have_content "BQE"
   end
 
   it "allows you to see a single landmark" do
-    @landmark = Landmark.first.id
-    get "/landmarks/#{@landmark}"
-    expect(last_response.status).to eq(200)
+    @landmark = Landmark.first
+    visit "/landmarks/#{@landmark.id}"
+    expect(page).to have_content"#{@landmark.name}"
   end
 
   it "allows you to edit a single landmark" do
@@ -36,4 +36,5 @@ describe LandmarksController do
     click_button('submit')
     expect(page).to have_content "NewName"
   end
+
 end
